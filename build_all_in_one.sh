@@ -13,10 +13,10 @@ unset http_proxy
 ## Install necessary packages
 ##############################################################################
 
-aptitude update
-apt-get install ubuntu-cloud-keyring
-echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/havana main \
-     > /etc/apt/sources.list.d/havana.list
+#aptitude update
+#apt-get install ubuntu-cloud-keyring
+#echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/havana main \
+#     > /etc/apt/sources.list.d/havana.list
 
 aptitude update
 aptitude -y dist-upgrade
@@ -349,7 +349,7 @@ done
 ##############################################################################
 
 keystone-manage db_sync
-glance-manage db_sync
+su -s /bin/sh -c "glance-manage db_sync" glance
 nova-manage db sync
 cinder-manage db sync
 
